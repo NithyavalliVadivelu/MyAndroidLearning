@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MyAndroidLearning</string>
+
+    <string-array name="spinner_array">
+        <item>Choose country</item>
+        <item>Asia Pasific</item>
+        <item>North America</item>
+        <item>Europe</item>
+        <item>Lincoln</item>
+        <item>Middile East and Africa</item>
+        <item>South America</item>
+
+
+    </string-array>
+
+    <string-array name="list_items">
+        <item>Choose country</item>
+        <item>Asia Pasific</item>
+        <item>North America</item>
+        <item>Europe</item>
+        <item>Lincoln</item>
+        <item>Middile East and Africa</item>
+        <item>South America</item>
+
+
+    </string-array>
+    <string name="title_activity_submit">SubmitActivity</string>
+</resources>
