@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,15 +57,7 @@ public void onCreate(Bundle savedInstanceState) {
     }
 
 
-public static void updateData(){
-        System.out.println("came here");
-    viewModel.addAndShowData(view);
-}
 
-    public static void saveData(){
-        System.out.println("came here");
-        viewModel.saveData();
-    }
 
 
 }

@@ -9,24 +9,60 @@
             name="viewModel"
             type="com.example.myandroidlearning.HelpFragViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
 
-    tools:context=".HelpFrag" android:layout_height="match_parent"
-    android:layout_width="match_parent"
-
-    >
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/help_recycle_view"
+        tools:context=".HelpFrag" android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minWidth="327dp"
-        android:minHeight="325dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        >
+
+
+        <EditText
+            android:id="@+id/help_edit"
+            android:layout_width="178dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:hint="Type here.."
+            android:imeOptions="actionDone|actionGo|actionSend"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.text}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_recycle_view" />
+
+        <Button
+            android:id="@+id/help_add"
+            android:layout_width="58dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{(view)->viewModel.addAndShowData(view)}"
+            android:text="Add"
+            android:textColorLink="#00888282"
+            app:layout_constraintBottom_toBottomOf="@+id/help_edit"
+            app:layout_constraintStart_toEndOf="@+id/help_edit" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/help_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="447dp"
+            android:minWidth="327dp"
+            android:maxHeight="325dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Button
+            android:id="@+id/help_save"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:onClick="@{()->viewModel.saveData()}"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="@+id/help_add"
+            app:layout_constraintStart_toEndOf="@+id/help_add" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

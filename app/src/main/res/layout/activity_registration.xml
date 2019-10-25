@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myandroidlearning.RegistrationViewModel" />
+    </data>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -53,11 +61,12 @@
         app:layout_constraintTop_toTopOf="@+id/guideline22" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/reg_username"
         android:layout_width="197dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
         android:ems="10"
+        android:text="@={viewModel.userName}"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
@@ -72,13 +81,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/reg_password"
         android:layout_width="192dp"
         android:layout_height="40dp"
         android:ems="10"
+        android:text="@={viewModel.password}"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/reg_username" />
 
     <TextView
         android:id="@+id/textView14"
@@ -90,23 +100,62 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/reg_confirm_password"
         android:layout_width="194dp"
         android:layout_height="37dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="@={viewModel.confirmPassword}"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/editText7" />
+        app:layout_constraintStart_toStartOf="@+id/reg_password" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="Sign up"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="@{()->viewModel.submitData()}"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="135dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="194dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:text="@={viewModel.name}"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/reg_confirm_password" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:text="Country"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Spinner
+        android:id="@+id/reg_country"
+        android:layout_width="188dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/reg_name"
+        android:onItemSelected="@{(parent,view,pos,id)->viewModel.onSelectItem(parent,view,pos,id)}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyAndroidLearning</string>
+    <string name="app_name">My Android Learning</string>
 
     <string-array name="spinner_array">
         <item>Choose country</item>
@@ -29,6 +29,7 @@
     <string name="tab_text_1">Help</string>
     <string name="tab_text_2">Event</string>
     <string name="tab_text_3">Interest</string>
+    <string name="action_settings">Setting</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
