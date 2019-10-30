@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
 
         <variable
             name="viewModel"
-            type="com.example.myandroidlearning.LoginBindViewModel" />
+            type="com.example.myandroidlearning.viewmodel.LoginBindViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="@mipmap/logo"
+        android:background="#e8e7e6"
         tools:context=".OverallMainActivity">
 
 
@@ -80,8 +81,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:text="@={viewModel.userName}"
             android:inputType="textPersonName"
+            android:text="@={viewModel.userName}"
             app:layout_constraintBottom_toTopOf="@+id/Password_View"
             app:layout_constraintEnd_toStartOf="@+id/guideline20"
             app:layout_constraintHorizontal_bias="0.0"
@@ -91,21 +92,24 @@
             android:id="@+id/editText5"
             android:layout_width="164dp"
             android:layout_height="47dp"
-            android:cursorVisible="false"
+            android:cursorVisible="true"
+
             android:ems="10"
-            android:text="@={viewModel.password}"
             android:inputType="textPassword"
+            android:text="@={viewModel.password}"
             app:layout_constraintBottom_toBottomOf="@+id/Password_View"
             app:layout_constraintEnd_toEndOf="@+id/login_user_name"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/login_user_name" />
 
         <Button
             android:id="@+id/login"
-            android:layout_width="133dp"
-            android:layout_height="41dp"
+            android:layout_width="87dp"
+            android:layout_height="36dp"
             android:layout_marginTop="24dp"
+            android:onClick="@{(view)->viewModel.checkValidity(view)}"
+
             android:text="Login"
-            android:onClick="@{()->viewModel.checkValidity()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Password_View" />
@@ -136,7 +140,7 @@
             android:text="Signup"
             android:textAlignment="center"
             android:textColor="#6CAFEE"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
             app:layout_constraintStart_toEndOf="@+id/textView12" />
@@ -147,6 +151,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="86dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="136dp"
+            android:layout_height="103dp"
+
+            android:layout_marginTop="16dp"
+            android:text="Loading..."
+            android:visibility="@{viewModel.visibility}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

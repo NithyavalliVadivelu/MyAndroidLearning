@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myandroidlearning.adapter.HelpAdapter;
 import com.example.myandroidlearning.databinding.FragmentHelpFragBinding;
+import com.example.myandroidlearning.viewmodel.HelpFragViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

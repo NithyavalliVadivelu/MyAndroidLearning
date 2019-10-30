@@ -41,9 +41,9 @@ public class Main7Activity extends AppCompatActivity {
         tabs.setupWithViewPager(mviewPager);
         Intent intent= getIntent();
         String name=intent.getStringExtra("name");
-        TextView tv=(TextView)findViewById(R.id.title);
-        tv.setText("Hello "+name+" !!!");
-        System.out.println("name is =======>"+tv.getText());
+       /* TextView tv=(TextView)findViewById(R.id.title);
+        tv.setText("Hello "+name+" !!!");*/
+        getSupportActionBar().setTitle("Hello "+name);
     }
 
     @Override

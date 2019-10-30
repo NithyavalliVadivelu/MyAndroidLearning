@@ -5,9 +5,9 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myandroidlearning.InterestFragViewModel" />
+            type="com.example.myandroidlearning.viewmodel.InterestFragViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout tools:context=".InterestFrag" android:layout_height="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout tools:context=".fragment.InterestFrag" android:layout_height="match_parent"
         android:layout_width="match_parent">
 
 

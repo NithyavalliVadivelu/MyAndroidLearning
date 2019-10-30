@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myandroidlearning.EventFrag;
-import com.example.myandroidlearning.HelpFrag;
-import com.example.myandroidlearning.InterestFrag;
+import com.example.myandroidlearning.fragment.EventFrag;
+import com.example.myandroidlearning.fragment.HelpFrag;
+import com.example.myandroidlearning.fragment.InterestFrag;
 import com.example.myandroidlearning.R;
 
 /**

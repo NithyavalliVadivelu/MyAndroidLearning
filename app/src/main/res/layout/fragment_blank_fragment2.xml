@@ -3,7 +3,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-tools:context=".BlankFragment2"
+tools:context=".fragment.BlankFragment2"
     android:background="@color/cardview_light_background">
 
 <!-- TODO: Update blank fragment layout -->

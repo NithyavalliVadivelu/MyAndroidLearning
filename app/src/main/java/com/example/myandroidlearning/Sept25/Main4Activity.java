@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.myandroidlearning.BlankFragment;
-import com.example.myandroidlearning.BlankFragment2;
+import com.example.myandroidlearning.fragment.BlankFragment;
+import com.example.myandroidlearning.fragment.BlankFragment2;
 import com.example.myandroidlearning.R;
 import com.example.myandroidlearning.databinding.ActivityMain4Binding;
 

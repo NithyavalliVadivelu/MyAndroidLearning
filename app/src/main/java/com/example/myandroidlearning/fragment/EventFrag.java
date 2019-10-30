@@ -1,7 +1,6 @@
 package com.example.myandroidlearning;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,43 +11,41 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myandroidlearning.databinding.FragmentInterestFragBinding;
+import com.example.myandroidlearning.adapter.EventAdapter;
+import com.example.myandroidlearning.databinding.FragmentEventFragBinding;
+import com.example.myandroidlearning.viewmodel.EventFragViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class InterestFrag extends Fragment {
+public class EventFrag extends Fragment {
+
 
     public static RecyclerView recyclerView;
     public static RecyclerView.Adapter myAdapter;
     public RecyclerView.LayoutManager myLayoutManager;
-    public static List<String> interestItemList=new ArrayList<>();
+    public static List<String> eventItemList=new ArrayList<>();
     public static Context applicationContext;
-    public static  InterestFragViewModel viewModel=new InterestFragViewModel();
+    public static EventFragViewModel viewModel=new EventFragViewModel();
     public static View view;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentInterestFragBinding binding= DataBindingUtil.inflate(inflater,R.layout.fragment_interest_frag,container,false);
-         view=binding.getRoot();
 
-        recyclerView=view.findViewById(R.id.interest_recycle_view);
+        FragmentEventFragBinding binding= DataBindingUtil.inflate(inflater,R.layout.fragment_event_frag,container,false);
+         view=binding.getRoot();
+        binding.setViewModel(viewModel);
+        recyclerView=view.findViewById(R.id.frag_recycle_view);
+        myAdapter=new EventAdapter(eventItemList);
         myLayoutManager=new LinearLayoutManager(getContext());
-        applicationContext=getContext();
-        recyclerView.setLayoutManager(myLayoutManager);
-        myAdapter= new InterestAdapter(interestItemList);
         recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(myLayoutManager);
+        applicationContext=getContext();
         viewModel.setMandatoryDetails();
         viewModel.readData();
-        binding.setViewModel(viewModel);
         return view;
     }
 
@@ -60,6 +57,5 @@ public class InterestFrag extends Fragment {
         System.out.println("came here");
         viewModel.saveData();
     }
-
 
 }

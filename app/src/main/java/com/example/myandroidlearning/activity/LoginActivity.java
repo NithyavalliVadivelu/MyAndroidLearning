@@ -1,13 +1,13 @@
 package com.example.myandroidlearning;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.widget.EditText;
 
 import com.example.myandroidlearning.databinding.ActivityLoginBinding;
+import com.example.myandroidlearning.viewmodel.LoginBindViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -3,12 +3,12 @@ package com.example.myandroidlearning;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.myandroidlearning.databinding.ActivityRegistrationBinding;
+import com.example.myandroidlearning.viewmodel.RegistrationViewModel;
 
 public class RegistrationActivity extends AppCompatActivity {
 

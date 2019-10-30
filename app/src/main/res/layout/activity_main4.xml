@@ -27,11 +27,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".Main4Activity">
+    tools:context=".activity.Main4Activity">
 
     <fragment
         android:id="@+id/frag"
-        android:name="com.example.myandroidlearning.BlankFragment"
+        android:name="com.example.myandroidlearning.fragment.BlankFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 

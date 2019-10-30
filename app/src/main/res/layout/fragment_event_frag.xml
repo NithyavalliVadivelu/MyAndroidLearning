@@ -5,9 +5,9 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myandroidlearning.EventFragViewModel" />
+            type="com.example.myandroidlearning.viewmodel.EventFragViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout tools:context=".HelpFrag" android:layout_height="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout tools:context=".fragment.HelpFrag" android:layout_height="match_parent"
         android:layout_width="match_parent">
 
 
