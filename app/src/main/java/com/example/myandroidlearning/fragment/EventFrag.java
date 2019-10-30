@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myandroidlearning.R;
 import com.example.myandroidlearning.adapter.EventAdapter;
 import com.example.myandroidlearning.databinding.FragmentEventFragBinding;
 import com.example.myandroidlearning.viewmodel.EventFragViewModel;
@@ -35,7 +36,7 @@ public class EventFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        FragmentEventFragBinding binding= DataBindingUtil.inflate(inflater,R.layout.fragment_event_frag,container,false);
+        FragmentEventFragBinding binding= DataBindingUtil.inflate(inflater, R.layout.fragment_event_frag,container,false);
          view=binding.getRoot();
         binding.setViewModel(viewModel);
         recyclerView=view.findViewById(R.id.frag_recycle_view);

@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,6 +9,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myandroidlearning.fragment.BlankFragment;
+import com.example.myandroidlearning.fragment.BlankFragment2;
+import com.example.myandroidlearning.R;
+import com.example.myandroidlearning.Sample;
 import com.example.myandroidlearning.databinding.ActivityMain4Binding;
 
 public class Main4Activity extends AppCompatActivity {
@@ -20,7 +24,7 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMain4Binding binding= DataBindingUtil.setContentView(this,R.layout.activity_main4);
+        ActivityMain4Binding binding= DataBindingUtil.setContentView(this, R.layout.activity_main4);
         Sample VM=new Sample("John","William");
         binding.setName(VM);
 

@@ -1,15 +1,15 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.myandroidlearning.R;
+
 import java.util.List;
 
 public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.HelpViewHolder> {

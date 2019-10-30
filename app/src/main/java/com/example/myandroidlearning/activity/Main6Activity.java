@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,11 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.myandroidlearning.ExampleAdapter;
+import com.example.myandroidlearning.ExampleItem;
 import com.example.myandroidlearning.Model.Main;
 import com.example.myandroidlearning.Model.RetroPhoto;
+import com.example.myandroidlearning.R;
 import com.example.myandroidlearning.services.GetServices;
 
 import java.util.ArrayList;

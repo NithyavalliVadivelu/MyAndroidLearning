@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import com.example.myandroidlearning.R;
 
 public class MainActivity extends AppCompatActivity {
     boolean editTextFlag=false;

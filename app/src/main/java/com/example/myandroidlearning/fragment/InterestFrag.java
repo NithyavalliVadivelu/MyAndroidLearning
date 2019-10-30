@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myandroidlearning.R;
 import com.example.myandroidlearning.adapter.InterestAdapter;
 import com.example.myandroidlearning.databinding.FragmentInterestFragBinding;
 import com.example.myandroidlearning.viewmodel.InterestFragViewModel;
@@ -38,7 +39,7 @@ public class InterestFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentInterestFragBinding binding= DataBindingUtil.inflate(inflater,R.layout.fragment_interest_frag,container,false);
+        FragmentInterestFragBinding binding= DataBindingUtil.inflate(inflater, R.layout.fragment_interest_frag,container,false);
          view=binding.getRoot();
 
         recyclerView=view.findViewById(R.id.interest_recycle_view);

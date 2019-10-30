@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.viewmodel;
 
 import android.os.StrictMode;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myandroidlearning.adapter.InterestAdapter;
+import com.example.myandroidlearning.fragment.InterestFrag;
 import com.example.myandroidlearning.util.SharedPrefUtils;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class InterestFragViewModel extends ViewModel {
     RecyclerView.Adapter myAdapter;
     SharedPrefUtils utils=new SharedPrefUtils();
     public String sharedPrefName="interest_pref";
-    public List<String> InterestItemList=InterestFrag.interestItemList;
+    public List<String> InterestItemList= InterestFrag.interestItemList;
     public InterestFragViewModel() { }
     public InterestFragViewModel(ObservableField<String> text) {
         this.text = text;

@@ -1,4 +1,4 @@
-package com.example.myandroidlearning;
+package com.example.myandroidlearning.viewmodel;
 
 import android.os.StrictMode;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myandroidlearning.adapter.EventAdapter;
+import com.example.myandroidlearning.fragment.EventFrag;
 import com.example.myandroidlearning.util.SharedPrefUtils;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class EventFragViewModel extends ViewModel {
     RecyclerView.Adapter myAdapter;
     SharedPrefUtils utils=new SharedPrefUtils();
     public String sharedPrefName="event_pref";
-    public List<String> eventItemList=EventFrag.eventItemList;
+    public List<String> eventItemList= EventFrag.eventItemList;
     public EventFragViewModel() { }
     public EventFragViewModel(ObservableField<String> text) {
         this.text = text;
