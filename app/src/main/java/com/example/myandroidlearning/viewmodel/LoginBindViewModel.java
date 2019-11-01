@@ -6,6 +6,7 @@ import android.graphics.BlendMode;
 import android.graphics.Color;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -23,6 +24,9 @@ import com.example.myandroidlearning.activity.RegistrationActivity;
 import com.example.myandroidlearning.providers.AccountProfileServiceProvider;
 import com.example.myandroidlearning.services.AccountProfileServices;
 import com.example.myandroidlearning.util.ResourceUtil;
+import com.example.myandroidlearning.util.SharedPrefUtils;
+
+import java.util.HashMap;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -34,8 +38,6 @@ public class LoginBindViewModel extends ViewModel {
     public ObservableField<String> password = new ObservableField<>();
     final Context context = ResourceUtil.getAppContext();
     public ObservableField<Integer> visibility= new ObservableField<>();
-    ///public MutableLiveData<Integer> visibility=new MutableLiveData<>();
-
 
     public LoginBindViewModel() {
         visibility.set( View.GONE);
@@ -52,36 +54,30 @@ public class LoginBindViewModel extends ViewModel {
     }
 
     public void checkValidity(View view ) {
-
         final Intent myIntent = new Intent(context, Main7Activity.class);
         AccountProfileServices services = AccountProfileServiceProvider.getRetroInstance();
-
-
-
-
-
         services.login(new LoginParamModel(this.userName.get(), this.password.get()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new Observer<UserProfileModel>() {
+
+                    String userName="";
+                     String password="";
+                    String name="";
                     @Override
                     public void onSubscribe(Disposable d) {
-                        System.out.println("in subcribe=================");
                        visibility.set(View.VISIBLE);
                        LoginActivity.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-
                     }
 
                     @Override
                     public void onNext(UserProfileModel userProfileModel) {
-                        System.out.println("hereeeeeeeeee======================>"+userProfileModel.getName());
-                        LoginActivity.window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                        myIntent.putExtra("name",userProfileModel.getName());
-                        context.startActivity(myIntent);
-
                         if(userProfileModel==null){
                             Toast.makeText(context,"User name or Password invalid.",Toast.LENGTH_LONG).show();
+                        }else {
+                            name = userProfileModel.getName();
+                            userName = userProfileModel.getUserName();
+                            password = userProfileModel.getPassword();
                         }
                     }
 
@@ -92,20 +88,24 @@ public class LoginBindViewModel extends ViewModel {
                         Toast.makeText(context,"User name or Password invalid.",Toast.LENGTH_LONG).show();
                        else
                            Toast.makeText(context,e.getMessage(),Toast.LENGTH_LONG).show();
-
-                        visibility.set(View.GONE);
+                       visibility.set(View.GONE);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("com,pleted========================");
                         visibility.set(View.GONE);
                         LoginActivity.window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                      //  LoginActivity.layout.
+                        myIntent.putExtra("name",name);
+                        if(!userName.equalsIgnoreCase("") && !password.equalsIgnoreCase("")) {
+                            SharedPrefUtils utils = new SharedPrefUtils();
+                            HashMap<String, String> credentials = new HashMap<>();
+                            credentials.put("username", userName);
+                            credentials.put("password", password);
+                            utils.saveLoginCredential(credentials, "LogIn");
+                        }
+                        context.startActivity(myIntent);
                     }
                 });
-
-
     }
 
 

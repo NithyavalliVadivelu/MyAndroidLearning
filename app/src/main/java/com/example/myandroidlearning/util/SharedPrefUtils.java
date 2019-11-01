@@ -6,13 +6,14 @@ import android.content.SharedPreferences;
 import com.example.myandroidlearning.HelpItem;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class SharedPrefUtils {
 
-    Context context;
+    Context context=ResourceUtil.getAppContext();
     public static String SHARED_PREF_NAME="SharedRef";
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -89,5 +90,28 @@ public class SharedPrefUtils {
         Set<String> emptySet=new HashSet<String>();
         Set<String> data= sharedPreferences.getStringSet(key,emptySet);
         return new HashSet<>(data);
+    }
+
+    public void saveLoginCredential(HashMap<String,String> details,String shared_pref_name){
+        this.sharedPreferences=context.getSharedPreferences(shared_pref_name, Context.MODE_PRIVATE);
+        this.editor=this.sharedPreferences.edit();
+
+        editor.putString("username",details.get("username"));
+        editor.putString("password",details.get("password"));
+        editor.apply();
+    }
+
+    public HashMap<String,String> getLoginCredentials(String shared_pref_name){
+        this.sharedPreferences=context.getSharedPreferences(shared_pref_name, Context.MODE_PRIVATE);
+        this.editor=this.sharedPreferences.edit();
+        HashMap<String,String> credential= new HashMap<>();
+       credential.put("username",sharedPreferences.getString("username","")) ;
+       credential.put("password",sharedPreferences.getString("password",""));
+       return credential;
+
+    }
+
+    public void clearSharedPreference(String shared_pref_name){
+        context.getSharedPreferences(shared_pref_name, Context.MODE_PRIVATE).edit().clear().commit();
     }
 }

@@ -2,11 +2,15 @@ package com.example.myandroidlearning.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.myandroidlearning.R;
 import com.example.myandroidlearning.databinding.ActivityMain7Binding;
+import com.example.myandroidlearning.util.SharedPrefUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -30,12 +34,15 @@ import android.widget.TextView;
 
 import com.example.myandroidlearning.ui.main.SectionsPagerAdapter;
 
+import static com.example.myandroidlearning.util.ResourceUtil.context;
+
 public class Main7Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
         Toolbar toolBar=findViewById(R.id.appBarLayout);
+        toolBar.getOverflowIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolBar);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         final ViewPager mviewPager = findViewById(R.id.view_pager);
@@ -57,6 +64,8 @@ public class Main7Activity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            SharedPrefUtils utils=new SharedPrefUtils();
+            utils.clearSharedPreference("LogIn");
             Intent intent= new Intent(this,LoginActivity.class);
             startActivity(intent);
             return true;
@@ -75,12 +84,16 @@ public class Main7Activity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog dialog=new AlertDialog.Builder(this)
                 .setTitle("Exit")
-                .setMessage("Do you want to quit?")
+                .setMessage("Do you want to exit?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                     //    Main7Activity.super.onBackPressed();
-                        finish();
+
+
+                        Main7Activity.super.finish();
+                        finishAffinity();
+
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

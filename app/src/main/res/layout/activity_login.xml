@@ -86,7 +86,9 @@
             app:layout_constraintBottom_toTopOf="@+id/Password_View"
             app:layout_constraintEnd_toStartOf="@+id/guideline20"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline21" />
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            android:imeOptions="actionDone"
+            />
 
         <EditText
             android:id="@+id/editText5"
@@ -100,14 +102,16 @@
             app:layout_constraintBottom_toBottomOf="@+id/Password_View"
             app:layout_constraintEnd_toEndOf="@+id/login_user_name"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/login_user_name" />
+            app:layout_constraintStart_toStartOf="@+id/login_user_name"
+            android:imeOptions="actionDone"
+            />
 
         <Button
             android:id="@+id/login"
             android:layout_width="87dp"
             android:layout_height="36dp"
             android:layout_marginTop="24dp"
-            android:onClick="@{(view)->viewModel.checkValidity(view)}"
+            android:onClick="hideKeyboard"
 
             android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"

@@ -25,7 +25,6 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="20dp"
             android:hint="Type here.."
-            android:imeOptions="actionDone|actionGo|actionSend"
             android:inputType="textPersonName"
             android:text="@={viewModel.text}"
             app:layout_constraintStart_toStartOf="parent"

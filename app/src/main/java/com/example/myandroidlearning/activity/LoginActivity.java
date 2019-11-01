@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -18,12 +19,13 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText nameEdit;
     public static  Window window;
+    LoginBindViewModel viewModel=new LoginBindViewModel();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ActivityLoginBinding binding=DataBindingUtil.setContentView(this, R.layout.activity_login);
-        binding.setViewModel(new LoginBindViewModel());
+        binding.setViewModel(viewModel);
        window=getWindow();
 
 
@@ -35,7 +37,21 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-    super.onBackPressed();
+       if( (findViewById(R.id.progress_circular)).getVisibility()==View.GONE) {
+           finish();
+           finishAffinity();
+       }else{
 
+       }
     }
+
+    public void hideKeyboard(View view) {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            viewModel.checkValidity(view);
+        } catch(Exception ignored) {
+        }
+    }
+
 }
