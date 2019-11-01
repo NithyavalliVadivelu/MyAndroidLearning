@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_validation);
 
         boolean textOnFocusFlag=false;
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                            btn.setBackgroundColor(Color.GREEN);
 
                         }}else{
-                            AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                            AlertDialog.Builder adb = new AlertDialog.Builder(ValidationActivity.this);
                             //    adb.setView(alertDialogView);
                             adb.setTitle("Please give all the details");
                             adb.setIcon(android.R.drawable.ic_dialog_alert);
